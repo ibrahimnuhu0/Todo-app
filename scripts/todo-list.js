@@ -7,14 +7,17 @@ function renderTodoList () {
 
 let todoRender = '';
 
-for (i = 0; i < todoList.length; i++){
+for ( let i = 0; i < todoList.length; i++){
 const todo = todoList[i];
 const {name, dueDate} = todo;
 
-const html = `<p>${name} ${dueDate}<button onclick="
+const html = `
+<div>${name}</div>
+<div>${dueDate}</div>
+<button onclick="
 todoList.splice(${i}, 1);
-renderTodoList();
-">Delete</button> </p>`;
+renderTodoList(); 
+" class="delete-todo-button">Delete</button>`;
 todoRender += html;
 }
 
