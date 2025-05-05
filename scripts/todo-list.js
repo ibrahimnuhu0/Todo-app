@@ -1,4 +1,4 @@
-const todoList = [
+const todoList = [{name:'nuhu', dueDate: '2020-12-22'}
   ];
 
 renderTodoList();
@@ -7,21 +7,19 @@ function renderTodoList () {
 
 let todoRender = '';
 
-for ( let i = 0; i < todoList.length; i++){
-const todo = todoList[i];
+todoList.forEach(function(todo, index) {
+
 const {name, dueDate} = todo;
 
 const html = `
 <div>${name}</div>
 <div>${dueDate}</div>
 <button onclick="
-todoList.splice(${i}, 1);
+todoList.splice(${index}, 1);
 renderTodoList(); 
 " class="delete-todo-button">Delete</button>`;
 todoRender += html;
-}
-
-console.log(todoRender);
+});
 
 document.querySelector('.js-todo-list').innerHTML = todoRender;
 
